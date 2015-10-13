@@ -22,15 +22,25 @@ sleep 1
 
 echo '[###### Install utility tool ######]'
 sleep 1
-sudo apt-get install -y mc git-core curl
+sudo apt-get install -y mc git-core curl aptitude
 echo '[###### Done ######]'
 sleep 1
 
 
-echo '[###### Install Files ######]'
+echo '[###### Install System Repos ######]'
 sleep 1
 sudo apt-get install -y zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev
 sudo apt-get install -y libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev
+echo '[###### Done ######]'
+sleep 1
+
+
+echo '[###### Install Ruby2.2 from Brightbox repo ######]'
+sleep 1
+sudo apt-add-repository ppa:brightbox/ruby-ng
+sudo apt-get -y update
+sudo apt-get install -y ruby2.2 ruby2.2-dev rubygems ruby-switch
+sudo ruby-switch --set ruby2.2
 echo '[###### Done ######]'
 sleep 1
 
