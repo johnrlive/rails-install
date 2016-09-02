@@ -65,6 +65,15 @@ git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-buil
 git clone git://github.com/sstephenson/rbenv-vars.git ~/.rbenv/plugins/rbenv-vars
 
 
+#if [ -d "$HOME/.rbenv" ]; then
+#  export GEM_PATH=$GEM_PATH:$HOME/.gems
+#  export PATH=$HOME/.rbenv/bin:$PATH;
+#  export RBENV_ROOT=$HOME/.rbenv;
+#  eval "$(rbenv init -)";
+#fi
+
+
+
 #    - name: Install Ruby
 #      shell: bash -lc "rbenv install {{ ruby_version }} && rbenv rehash"
 #      when:
@@ -113,12 +122,12 @@ echo '[###### Done ######]'
 sleep 1
 
 
-echo '[###### Adds bash_profile with aliases ######]'
-sleep 1
-sudo cp -f .profile ~/.profile
-source ~/.profile
-echo '[###### Done #####]'
-sleep 1
+# echo '[###### Adds bash_profile with aliases ######]'
+#sleep 1
+#sudo cp -f .profile ~/.profile
+#source ~/.profile
+#echo '[###### Done #####]'
+#sleep 1
 
 
 echo '[###### Setup Unattended Updates ######]'
