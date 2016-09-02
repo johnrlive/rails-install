@@ -25,7 +25,7 @@ sleep 1
 
 echo '[###### Install utility tool ######]'
 sleep 1
-sudo apt-get install -y mc git-core curl
+sudo apt-get install -y vim git git-core curl mc
 echo '[###### Done ######]'
 sleep 1
 
@@ -38,23 +38,45 @@ echo '[###### Done ######]'
 sleep 1
 
 
+echo '[###### Install Node.JS Repos ######]'
+sleep 1
+sudo apt-get install -y nodejs npm
+echo '[###### Done ######]'
+sleep 1
+
+
+echo '[###### Install Database Sqlite3 ######]'
+sleep 1
+sudo apt-get install -y libsqlite3-dev sqlite3
+echo '[###### Done ######]'
+sleep 1
+
+
 echo '[###### Install rbenv ######]'
 sleep 1
-cd ~ 
-git clone git://github.com/sstephenson/rbenv.git .rbenv
+git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
 # echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
 # echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
 
 git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 # echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bash_profile
-source ~/.bash_profile
+# source ~/.bash_profile
+
+git clone git://github.com/sstephenson/rbenv-vars.git ~/.rbenv/plugins/rbenv-vars
 
 
-echo '[###### Install Database Sqlite3 ######]'
-sleep 1
-sudo apt-get install -y sqlite3 libsqlite3-dev
-echo '[###### Done ######]'
-sleep 1
+#    - name: Install Ruby
+#      shell: bash -lc "rbenv install {{ ruby_version }} && rbenv rehash"
+#      when:
+#        - ruby_installed.rc != 0
+#
+#    - name: Set Global Ruby Version
+#      shell: bash -lc "rbenv global {{ ruby_version }} && rbenv rehash"
+#
+#   - name: Clone rbenv-vars to ~/.rbenv
+#      git: repo=https://github.com/sstephenson/rbenv-vars.git
+#        dest="~/.rbenv/plugins/rbenv-vars"
+
 
 
 echo '[###### Install Nginx ######]
